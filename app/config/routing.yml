@@ -1,3 +1,7 @@
+efc_category:
+    resource: "@EFCCategoryBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
