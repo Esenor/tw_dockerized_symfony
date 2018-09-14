@@ -1,0 +1,19 @@
+version: '2'
+services:
+  symfony_app:
+    build:
+      context: ../..
+      dockerfile: etc/docker/Dockerfile
+    container_name: symfony_app
+    ports:
+      - "8090:80"
+      - "8043:443"
+    volumes:
+      - ../../app:/var/www/app/
+      - ../../bin:/var/www/bin/
+      - ../../html:/var/www/html/
+      - ../../src:/var/www/src/
+      - ../../tests:/var/www/tests/
+      - ../../var:/var/www/var/
+      - ../../vendor:/var/www/vendor/
+      - ../../web:/var/www/web/
