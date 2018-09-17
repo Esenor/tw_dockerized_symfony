@@ -1,5 +1,6 @@
 version: '2'
 services:
+  # *******************************************
   symfony_app:
     build:
       context: ../..
@@ -17,3 +18,23 @@ services:
       - ../../var:/var/www/var/
       - ../../vendor:/var/www/vendor/
       - ../../web:/var/www/web/
+  # *******************************************
+  symfony_mysql_db:
+    image: mysql:5.6
+    ports:
+      - "30390:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=changeit
+      - MYSQL_ALLOW_EMPTY_PASSWORD=false
+    container_name: symfony_mysql_db
+    volumes:
+      - ../mysql:/docker-entrypoint-initdb.d
+      - symfonymysqldb:/var/lib/mysql
+# *******************************************
+volumes:
+  symfonymysqldb:
+# *******************************************
+networks:
+  default:
+    external:
+      name: symfony_dev

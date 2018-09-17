@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Enpoints category</title>
+</head>
+
+<body>
+  <header>
+    <h1>EFC</h1>
+    <h2>CategoryBundle</h2>
+    <h3>Endpoint</h3>
+  </header>
+  <section>
+    <ul>
+      {% for endpoint in endpoints %}
+      <li>
+        <strong>{{ endpoint.method }}</strong>
+        {{ endpoint.url }}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</body>
+
+</html>
