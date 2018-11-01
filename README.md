@@ -1,4 +1,14 @@
-my_project_name
-===============
+# tw_dockerized_symfony
 
-A Symfony project created on November 1, 2018, 7:06 pm.
+## Usage
+
+    # Build docker image
+    $ docker-compose -f etc/docker/docker-compose.yml build
+    # Launch docker container
+    $ docker-compose -f etc/docker/docker-compose.yml up -d
+    # Connect inside the container
+    $ docker exec -ti docker_phpfpm_1 bash
+
+    # Inside container
+    $ composer update
+    $ chown -R www-data:www-data vendor var
