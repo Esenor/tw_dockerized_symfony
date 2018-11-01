@@ -1,16 +1,16 @@
 version: '2'
 services:
-  php:
+  phpfpm:
     build:
       context: ../..
       dockerfile: etc/docker/Dockerfile_php
     expose:
       - '9000'
     depends_on:
-      - db
+      - mysql
     volumes:
-      - ./src/:/var/www/html/symfony:cached
-  web:
+      - ../../src/:/var/www/html/symfony:cached
+  nginx:
     build:
       context: ../..
       dockerfile: etc/docker/Dockerfile_nginx
@@ -18,17 +18,18 @@ services:
     ports:
       - '8042:80'
     depends_on:
-      - php
-      - db
+      - phpfpm
+      - mysql
     volumes:
-      - ./src/:/var/www/html/symfony:cached
-  db:
+      - ../../src/:/var/www/html/symfony:cached
+  mysql:
     image: mysql/mysql-server:latest
     environment:
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_ROOT_HOST=${MYSQL_ROOT_HOST}
+      - MYSQL_DATABASE=symfony
+      - MYSQL_ROOT_PASSWORD=changeIt
     ports:
       - "3307:3306"
     volumes:
-      - symfony_mysql/:/var/lib/mysql
+      - symfony_mysql:/var/lib/mysql
+volumes:
+  symfony_mysql:
