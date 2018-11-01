@@ -5,7 +5,7 @@ COPY /etc/nginx/nginx.conf /etc/nginx/nginx.conf
 ADD /etc/nginx/sites-enabled /etc/nginx/sites-enabled
 RUN rm /etc/nginx/sites-enabled/default
 
-WORKDIR /var/www/html/symfony
+WORKDIR /var/www/symfony
 
 EXPOSE 80
 EXPOSE 443

@@ -9,7 +9,7 @@ services:
     depends_on:
       - mysql
     volumes:
-      - ../../src/:/var/www/html/symfony:cached
+      - ../../src/:/var/www/symfony:cached
   nginx:
     build:
       context: ../..
@@ -21,7 +21,7 @@ services:
       - phpfpm
       - mysql
     volumes:
-      - ../../src/:/var/www/html/symfony:cached
+      - ../../src/:/var/www/symfony:cached
   mysql:
     image: mysql/mysql-server:latest
     environment:
