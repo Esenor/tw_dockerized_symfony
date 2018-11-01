@@ -1,7 +1,9 @@
 version: '2'
 services:
   php:
-    build: build/php
+    build:
+      context: ../..
+      dockerfile: etc/docker/Dockerfile_php
     expose:
       - '9000'
     depends_on:
@@ -9,15 +11,17 @@ services:
     volumes:
       - ./src/:/var/www/html/symfony:cached
   web:
-    build: build/nginx
+    build:
+      context: ../..
+      dockerfile: etc/docker/Dockerfile_nginx
     restart: always
     ports:
-        - ‘81:80'
+      - '8042:80'
     depends_on:
-        - php
-        - db
+      - php
+      - db
     volumes:
-        - ./src/:/var/www/html/symfony:cached
+      - ./src/:/var/www/html/symfony:cached
   db:
     image: mysql/mysql-server:latest
     environment:
@@ -27,4 +31,4 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - ./mysql/:/var/lib/mysql
+      - symfony_mysql/:/var/lib/mysql
