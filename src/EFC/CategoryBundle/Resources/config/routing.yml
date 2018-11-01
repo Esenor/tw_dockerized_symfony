@@ -1,9 +1,0 @@
-efc_category_endpoint:
-    path: /endpoint/category
-    defaults: { _controller: EFCCategoryBundle:Default:endpoint }
-
-efc_category_api_category:
-    path: /api/category/{code}
-    defaults: { _controller: EFCCategoryBundle:Api:category }
-    requirements:
-        code: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
