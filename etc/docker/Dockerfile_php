@@ -29,4 +29,9 @@ RUN chmod +x /usr/local/bin/composer
 RUN ln -snf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
 WORKDIR /var/www/symfony
 EXPOSE 9000
+
+ADD composer.json /var/www/symfony/composer.json
+ADD composer.lock /var/www/symfony/composer.lock
+ADD phpunit.xml.dist /var/www/symfony/phpunit.xml.dist
+
 CMD ["php-fpm7.1"]

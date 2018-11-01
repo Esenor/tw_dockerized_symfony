@@ -9,7 +9,13 @@ services:
     depends_on:
       - mysql
     volumes:
-      - ../../src/:/var/www/symfony:cached
+      - ../../app/:/var/www/symfony/app:cached
+      - ../../bin/:/var/www/symfony/bin:cached
+      - ../../src/:/var/www/symfony/src:cached
+      - ../../tests/:/var/www/symfony/tests:cached
+      - ../../web/:/var/www/symfony/web:cached
+      - symfony_var:/var/www/symfony/var:cached
+      - symfony_vendor:/var/www/symfony/vendor:cached
   nginx:
     build:
       context: ../..
@@ -21,7 +27,13 @@ services:
       - phpfpm
       - mysql
     volumes:
-      - ../../src/:/var/www/symfony:cached
+      - ../../app/:/var/www/symfony/app:cached
+      - ../../bin/:/var/www/symfony/bin:cached
+      - ../../src/:/var/www/symfony/src:cached
+      - ../../tests/:/var/www/symfony/tests:cached
+      - ../../web/:/var/www/symfony/web:cached
+      - symfony_var:/var/www/symfony/var:cached
+      - symfony_vendor:/var/www/symfony/vendor:cached
   mysql:
     image: mysql/mysql-server:latest
     environment:
@@ -33,3 +45,5 @@ services:
       - symfony_mysql:/var/lib/mysql
 volumes:
   symfony_mysql:
+  symfony_vendor:
+  symfony_var:
