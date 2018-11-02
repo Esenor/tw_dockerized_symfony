@@ -18,7 +18,7 @@ class DefaultController extends Controller
                 ]
             ],
             'product' => [
-                'sku' => 'ref_0001',
+                'sku' => $sku,
                 'name' => 'placeholder0001'
             ]
         ]);

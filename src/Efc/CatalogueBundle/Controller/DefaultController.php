@@ -25,6 +25,14 @@ class DefaultController extends Controller
                 [
                     'sku' => 'ref_0002',
                     'name' => 'placeholder0002'
+                ],
+                [
+                    'sku' => 'ref_0003',
+                    'name' => 'placeholder0003'
+                ],
+                [
+                    'sku' => 'ref_0004',
+                    'name' => 'placeholder0004'
                 ]
             ]
         ]);

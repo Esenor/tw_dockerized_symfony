@@ -1,12 +1,19 @@
 {% extends '@EfcEcommerce/layout/default.html.twig' %}
 
 {% block body %}
-<ul>
+<div class="row">
     {% for product in products %}
-    <li>
-        <strong>{{product.name}}</strong>
-        <small>{{product.sku}}</small>
-    </li>
+
+    <article class="card col mx-2" style="width: 18rem;">
+        <img class="card-img-top rounded mt-3" src="https://via.placeholder.com/150" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">Reference {{product.sku}}</p>
+            <a href="/product/{{product.sku}}" class="btn btn-primary">Open</a>
+        </div>
+    </article>
+
     {% endfor %}
-</ul>
+</div>
+
 {% endblock %}

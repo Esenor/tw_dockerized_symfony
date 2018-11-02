@@ -11,21 +11,22 @@
 </head>
 
 <body>
-    <header>
-        <h1>{{page.header.title | default('default header title')}}</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="/">Home<a /></li>
-            <li><a href="/catalogue">Catalogue<a /></li>
-            <li><a href="/product/ref0001">Product<a /></li>
-        </ul>
-    </nav>
-    {% block body %}
-    {% endblock %}
-    <footer>
-        <small>Default layout footer</small>
-    </footer>
+    <div class="container">
+        <header class="jumbotron">
+            <h1 class="display-4">{{page.header.title | default('default header title')}}</h1>
+        </header>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="/">Home<a /></li>
+                <li class="nav-item"><a class="nav-link" href="/catalogue">Catalogue<a /></li>
+            </ul>
+        </nav>
+        {% block body %}
+        {% endblock %}
+        <footer>
+            <small>Default layout footer</small>
+        </footer>
+    </div>
 </body>
 
 </html>
