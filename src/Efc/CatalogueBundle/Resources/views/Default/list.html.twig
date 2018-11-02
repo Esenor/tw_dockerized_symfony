@@ -1,0 +1,12 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block body %}
+<ul>
+    {% for product in products %}
+    <li>
+        <strong>{{product.name}}</strong>
+        <small>{{product.sku}}</small>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
