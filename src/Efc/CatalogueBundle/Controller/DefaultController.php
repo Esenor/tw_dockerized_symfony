@@ -9,7 +9,14 @@ class DefaultController extends Controller
     public function listAction()
     {
         return $this->render('@EfcCatalogue/Default/list.html.twig', [
-            'browserPageTitle' => 'Catalogue listing',
+            'page' => [
+                'head' => [
+                    'title' => 'catalogue list action'
+                ],
+                'header' => [
+                    'title' => 'Catalogue'
+                ]
+            ],
             'products' => [
                 [
                     'sku' => 'ref_0001',

@@ -1,7 +1,11 @@
+efc_product:
+    resource: "@EfcProductBundle/Resources/config/routing.yml"
+    prefix:   /product
+
 efc_catalogue:
     resource: "@EfcCatalogueBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /catalogue
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+efc_ecommerce:
+    resource: "@EfcEcommerceBundle/Resources/config/routing.yml"
+    prefix:   /

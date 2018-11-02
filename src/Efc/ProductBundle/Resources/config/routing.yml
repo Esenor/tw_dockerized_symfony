@@ -1,0 +1,3 @@
+efc_product_homepage:
+    path:     /{sku}
+    defaults: { _controller: EfcProductBundle:Default:index }
