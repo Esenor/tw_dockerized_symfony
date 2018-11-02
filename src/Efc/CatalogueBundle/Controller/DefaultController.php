@@ -8,6 +8,9 @@ class DefaultController extends Controller
 {
     public function listAction()
     {
+        
+        $products = $this->getDoctrine()->getRepository('EfcProductBundle:Product')->findAll();
+
         return $this->render('@EfcCatalogue/Default/list.html.twig', [
             'page' => [
                 'head' => [
@@ -17,24 +20,7 @@ class DefaultController extends Controller
                     'title' => 'Catalogue'
                 ]
             ],
-            'products' => [
-                [
-                    'sku' => 'ref_0001',
-                    'name' => 'placeholder0001'
-                ],
-                [
-                    'sku' => 'ref_0002',
-                    'name' => 'placeholder0002'
-                ],
-                [
-                    'sku' => 'ref_0003',
-                    'name' => 'placeholder0003'
-                ],
-                [
-                    'sku' => 'ref_0004',
-                    'name' => 'placeholder0004'
-                ]
-            ]
+            'products' => $products
         ]);
     }
 }

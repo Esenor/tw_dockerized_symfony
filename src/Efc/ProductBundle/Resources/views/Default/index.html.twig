@@ -1,8 +1,9 @@
 {% extends '@EfcEcommerce/layout/default.html.twig' %}
 
 {% block body %}
-<div>
-    <h2>Product: {{product.name}}</h2>
-    <small>Ref: {{product.sku}}</small>
-</div>
+<ul>
+    <li>Product: {{product.name}}</li>
+    <li><small>code:{{product.sku}}</small></li>
+    <li><strong>{{product.unitPrice}}</strong></li>
+</ul>
 {% endblock %}

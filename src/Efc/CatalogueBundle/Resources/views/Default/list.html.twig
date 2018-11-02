@@ -8,7 +8,8 @@
         <img class="card-img-top rounded mt-3" src="https://via.placeholder.com/150" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">{{product.name}}</h5>
-            <p class="card-text">Reference {{product.sku}}</p>
+            <p><small>code:{{product.sku}}</small></p>
+            <p class="card-title"><strong>{{product.unitPrice}}&euro;</strong></p>
             <a href="/product/{{product.sku}}" class="btn btn-primary">Open</a>
         </div>
     </article>

@@ -8,19 +8,18 @@ class DefaultController extends Controller
 {
     public function indexAction($sku)
     {
+        $product = $this->getDoctrine()->getRepository('EfcProductBundle:Product')->findOneBy(array('sku' => $sku));
+
         return $this->render('@EfcProduct/Default/index.html.twig', [
             'page' => [
                 'head' => [
                     'title' => 'product index action'
                 ],
                 'header' => [
-                    'title' => 'Products'
+                    'title' => $product->getName()
                 ]
             ],
-            'product' => [
-                'sku' => $sku,
-                'name' => 'placeholder0001'
-            ]
+            'product' => $product
         ]);
     }
 }
