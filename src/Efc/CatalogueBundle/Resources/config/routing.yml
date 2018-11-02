@@ -1,0 +1,3 @@
+efc_catalogue_homepage:
+    path:     /
+    defaults: { _controller: EfcCatalogueBundle:Default:index }
